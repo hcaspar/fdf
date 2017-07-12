@@ -1,19 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   render.c                                           :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hcaspar <hcaspar@student.42.fr>            +#+  +:+       +#+        */
+/*   By: hcaspar <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/05/23 16:24:43 by hcaspar           #+#    #+#             */
-/*   Updated: 2017/05/23 17:41:20 by hcaspar          ###   ########.fr       */
+/*   Created: 2015/11/26 09:58:37 by hcaspar           #+#    #+#             */
+/*   Updated: 2015/11/26 10:38:06 by hcaspar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "libft.h"
 
-int					render(t_env *e)
+void	*ft_memset(void *b, int c, size_t len)
 {
-	(void)e;
-	return (0);
+	unsigned char	*b2;
+	size_t			compt;
+
+	compt = 0;
+	b2 = (unsigned char*)b;
+	while (compt < len)
+	{
+		b2[compt] = (unsigned char)c;
+		compt++;
+	}
+	return (b);
 }

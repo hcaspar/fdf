@@ -6,7 +6,7 @@
 #    By: hcaspar <hcaspar@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/05/23 11:31:01 by hcaspar           #+#    #+#              #
-#    Updated: 2017/05/23 17:28:16 by hcaspar          ###   ########.fr        #
+#    Updated: 2017/07/12 15:05:49 by hcaspar          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,13 +17,19 @@ MLX_DIR =		mlx
 MLX_INC =		$(MLX_DIR)
 MLX_FLAG =		-L $(MLX_DIR) -lmlx -framework OpenGL -framework AppKit
 
-INC_DIR =		include $(MLX_INC)
+LIB_DIR =		libft
+LIB_INC =		$(LIB_DIR)/includes
+LIB_FLAG =		-L $(LIB_DIR) -lft
+
+INC_DIR =		include $(MLX_INC) $(LIB_INC)
 SRC_DIR =		src
 OBJ_DIR =		obj
 
-SRC_NAME =		hooks.c\
+SRC_NAME =		get_next_line.c\
+				hooks.c\
 				main.c\
 				mlx_init.c\
+				parsing.c\
 				prog_exit.c\
 				render.c
 
@@ -41,9 +47,10 @@ all: libs $(NAME)
 
 libs:
 	make -C $(MLX_DIR)
+	make -C $(LIB_DIR)
 
 $(NAME): $(OBJ)
-	$(CC) $(OBJ) -o $(NAME) $(MLX_FLAG)
+	$(CC) $(OBJ) -o $(NAME) $(MLX_FLAG) $(LIB_FLAG)
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c | $(OBJ_DIR)
 	$(CC) $(CFLAGS) -o $@ -c $<
@@ -54,6 +61,7 @@ $(OBJ_DIR):
 clean:
 	rm -rf $(OBJ_DIR)
 	make -C $(MLX_DIR) clean
+	make -C $(LIB_DIR) fclean
 
 fclean: clean
 	rm -f $(NAME)

@@ -1,19 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   render.c                                           :+:      :+:    :+:   */
+/*   ft_strnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hcaspar <hcaspar@student.42.fr>            +#+  +:+       +#+        */
+/*   By: hcaspar <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/05/23 16:24:43 by hcaspar           #+#    #+#             */
-/*   Updated: 2017/05/23 17:41:20 by hcaspar          ###   ########.fr       */
+/*   Created: 2015/11/28 15:31:18 by hcaspar           #+#    #+#             */
+/*   Updated: 2015/11/29 17:05:40 by hcaspar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "libft.h"
 
-int					render(t_env *e)
+char	*ft_strnew(size_t size)
 {
-	(void)e;
-	return (0);
+	char	*str;
+	size_t	i;
+
+	str = (char*)malloc(sizeof(char) * (size + 1));
+	if (!str)
+		return (NULL);
+	i = 0;
+	while (i < size + 1)
+	{
+		str[i] = '\0';
+		i++;
+	}
+	return (str);
 }

@@ -1,19 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   render.c                                           :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hcaspar <hcaspar@student.42.fr>            +#+  +:+       +#+        */
+/*   By: hcaspar <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/05/23 16:24:43 by hcaspar           #+#    #+#             */
-/*   Updated: 2017/05/23 17:41:20 by hcaspar          ###   ########.fr       */
+/*   Created: 2015/11/24 12:15:39 by hcaspar           #+#    #+#             */
+/*   Updated: 2015/11/28 19:37:51 by hcaspar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "libft.h"
 
-int					render(t_env *e)
+void	ft_putnbr(int n)
 {
-	(void)e;
-	return (0);
+	if (n == -2147483648)
+	{
+		write(1, "-2147483648", 11);
+		return ;
+	}
+	if (n < 0)
+	{
+		ft_putchar('-');
+		n = -n;
+	}
+	if (n >= 10)
+	{
+		ft_putnbr(n / 10);
+		n = n % 10;
+	}
+	ft_putchar(n + 48);
 }

@@ -1,19 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   render.c                                           :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hcaspar <hcaspar@student.42.fr>            +#+  +:+       +#+        */
+/*   By: hcaspar <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/05/23 16:24:43 by hcaspar           #+#    #+#             */
-/*   Updated: 2017/05/23 17:41:20 by hcaspar          ###   ########.fr       */
+/*   Created: 2015/11/24 13:32:12 by hcaspar           #+#    #+#             */
+/*   Updated: 2015/12/14 14:00:12 by hcaspar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "libft.h"
 
-int					render(t_env *e)
+void	ft_putendl_fd(char const *s, int fd)
 {
-	(void)e;
-	return (0);
+	int i;
+
+	i = 0;
+	while (s && s[i])
+	{
+		ft_putchar_fd(s[i], fd);
+		i++;
+	}
+	ft_putchar_fd('\n', fd);
 }

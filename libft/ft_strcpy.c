@@ -1,19 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   render.c                                           :+:      :+:    :+:   */
+/*   ft_strcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hcaspar <hcaspar@student.42.fr>            +#+  +:+       +#+        */
+/*   By: hcaspar <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/05/23 16:24:43 by hcaspar           #+#    #+#             */
-/*   Updated: 2017/05/23 17:41:20 by hcaspar          ###   ########.fr       */
+/*   Created: 2015/11/25 13:06:39 by hcaspar           #+#    #+#             */
+/*   Updated: 2015/11/29 15:34:29 by hcaspar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "libft.h"
 
-int					render(t_env *e)
+char	*ft_strcpy(char *dst, const char *src)
 {
-	(void)e;
-	return (0);
+	size_t	compt;
+
+	compt = 0;
+	while (src[compt])
+	{
+		dst[compt] = src[compt];
+		compt++;
+	}
+	dst[compt] = '\0';
+	return (dst);
 }

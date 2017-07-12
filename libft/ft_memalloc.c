@@ -1,19 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   render.c                                           :+:      :+:    :+:   */
+/*   ft_memalloc.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hcaspar <hcaspar@student.42.fr>            +#+  +:+       +#+        */
+/*   By: hcaspar <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/05/23 16:24:43 by hcaspar           #+#    #+#             */
-/*   Updated: 2017/05/23 17:41:20 by hcaspar          ###   ########.fr       */
+/*   Created: 2015/11/28 15:03:15 by hcaspar           #+#    #+#             */
+/*   Updated: 2015/11/28 15:56:13 by hcaspar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "libft.h"
 
-int					render(t_env *e)
+void	*ft_memalloc(size_t size)
 {
-	(void)e;
-	return (0);
+	char	*mem;
+	size_t	i;
+
+	mem = (void*)malloc(sizeof(mem) * size);
+	if (!mem)
+		return (NULL);
+	i = 0;
+	while (i < size)
+	{
+		mem[i] = 0;
+		i++;
+	}
+	return ((void*)mem);
 }

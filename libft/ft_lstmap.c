@@ -1,19 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   render.c                                           :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hcaspar <hcaspar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/05/23 16:24:43 by hcaspar           #+#    #+#             */
-/*   Updated: 2017/05/23 17:41:20 by hcaspar          ###   ########.fr       */
+/*   Created: 2015/12/16 17:04:24 by hcaspar           #+#    #+#             */
+/*   Updated: 2015/12/16 20:53:41 by hcaspar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "libft.h"
 
-int					render(t_env *e)
+t_list		*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 {
-	(void)e;
-	return (0);
+	t_list	*new;
+	t_list	*prev;
+
+	if (!lst || !f)
+		return (NULL);
+	new = f(lst);
+	prev = new;
+	while (lst->next)
+	{
+		lst = lst->next;
+		prev->next = f(lst);
+		prev = prev->next;
+	}
+	return (new);
 }

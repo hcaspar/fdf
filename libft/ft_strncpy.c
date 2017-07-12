@@ -1,27 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strncpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hcaspar <hcaspar@student.42.fr>            +#+  +:+       +#+        */
+/*   By: hcaspar <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/05/23 11:28:46 by hcaspar           #+#    #+#             */
-/*   Updated: 2017/07/12 15:31:20 by hcaspar          ###   ########.fr       */
+/*   Created: 2015/11/25 13:49:42 by hcaspar           #+#    #+#             */
+/*   Updated: 2015/11/29 15:35:06 by hcaspar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "libft.h"
 
-int					main(int ac, char **av)
+char	*ft_strncpy(char *dst, const char *src, size_t n)
 {
-	t_env			e;
+	size_t	compt;
 
-	if (ac < 2)
-		prog_exit(&e, "Bad input");
-	parsing(&e, av);
-	mlx(&e);
-	hooks(&e);
-	mlx_loop_hook(e.mlx.mlx, render, &e);
-	mlx_loop(e.mlx.mlx);
-	return (0);
+	compt = 0;
+	while (src[compt] && compt < n)
+	{
+		dst[compt] = src[compt];
+		compt++;
+	}
+	while (compt < n)
+	{
+		dst[compt] = '\0';
+		compt++;
+	}
+	return (dst);
 }
